@@ -3,52 +3,78 @@ import java.util.Scanner;
 public class HangManGame {
     public static void main(String[] args) {
         //, "knowledge", "cook", "wry", "best"
+        // String[] chosenWord = {"pour"};
+        // for (int i = 0; i < chosenWord.length; i++){
         Scanner keyboard;
         int hangMan = 0;
         int score = 0;
         String guessedLetter;
         boolean value = true;
         String playAgain = "";
-        String[] chosenWord = {"pour"};
+        String chosenWord = "pour";
+
         keyboard = new Scanner(System.in);
 
         System.out.println("This is the Hang Man Game. These are the rules.");
         System.out.println("There is going to be a word that you have to guess by guessing the letters that make up said word.");
-        System.out.println("You get fifteen tries to do so. If you win, you gain a point.\nYou could see your score at the end of the game, where you could choose to restart the game.");
+        System.out.println("Now, once you think you have the word, type out the word to win.\nHere's the kicker, I'm not telling you which order the letters are in.");
+        System.out.println("You get 8 tries to do so. If you win, you gain a point.\nYou could see your score at the end of the game, where you could choose to restart the game.");
         System.out.println("Let's get started.");
 
         while (value) {
-            for (int i = 0; i < chosenWord.length; i++){
-                int generatedNumber = (int) (Math.random() * 1);
+
+                //int generatedNumber = (int) (Math.random() * 1);
                 System.out.println("Guess a letter.");
 
-                guessedLetter = keyboard.nextLine();
+                guessedLetter = keyboard.nextLine().toLowerCase();
 
-                System.out.println(chosenWord[generatedNumber]);
-                    if (chosenWord[generatedNumber].equals("pour")) {
-                        if (guessedLetter.equals("p") || guessedLetter.equals("o") || guessedLetter.equals("u") || guessedLetter.equals("r")) {
+
+
+                       /* if (guessedLetter.equals("p") || guessedLetter.equals("o") || guessedLetter.equals("u") || guessedLetter.equals("r")) {
+                            System.out.println("Correct.");
                             guessedLetter = keyboard.nextLine();
                         }
-                        else{
-                        System.out.println(printMan(hangMan, false, guessedLetter,"pour"));
-                        hangMan++;
+                        else if (!guessedLetter.equals("p") && !guessedLetter.equals("o") && !guessedLetter.equals("u") && !guessedLetter.equals("r")){
+
+                            System.out.println(printMan(hangMan, false, guessedLetter,"pour"));
+                            System.out.println("Here's a hint, there are four letters.");
+                            hangMan++;
                         }
-                        if (guessedLetter.equals("p") && guessedLetter.equals("o") && guessedLetter.equals("u") && guessedLetter.equals("r")) {
+                        if (guessedLetter.equals("pour")) {
+                            System.out.println("lkjhsgd");
                             System.out.println(printMan(hangMan, true, guessedLetter,"pour"));
                             value = false;
                         }
                         if (hangMan>11){
                          value = false;
                          System.out.println(printMan(hangMan, false, guessedLetter,"pour"));
-                        }
+                        }*/
 
-            }
+                       if(guessedLetterRight(chosenWord,guessedLetter)){
+                           System.out.println("correct.");
+
+                           //System.out.println(printMan(hangMan,false));
+                       }
+                       else{
+
+                           System.out.println(printMan(hangMan,false));
+                           hangMan++;
+                       }
+                       if (hangMan>6){
+                           value = false;
+                           System.out.println(printMan(hangMan,false));
+                       }
+                       if (guessedLetter.equals("pour")){
+                           System.out.println(printMan(hangMan,true));
+                       }
+
+
 
         }
     }
-}
 
-    public static String printMan(int tries, boolean win, String guessedLetter, String chosenWord) {
+
+    public static String printMan(int tries, boolean win) {
         String response = "";
         String message;
         if (win) {
@@ -58,6 +84,7 @@ public class HangManGame {
         }
         switch (tries) {
 
+            default:
             case 0:
                 Scanner keyboard;
                 keyboard = new Scanner(System.in);
@@ -87,8 +114,20 @@ public class HangManGame {
             case 2:
                 response = "==========|\n" +
                         "||        |\n" +
+                        "||        0\n" +
+                        "||        +\n" +
                         "||        \n" +
-                        "||          \n" +
+                        "||      \n" +
+                        "||\n" +
+                        "\n" +
+                        message +
+                        " Guess again.";
+                break;
+            case 3:
+                response = "==========|\n" +
+                        "||        |\n" +
+                        "||        0\n" +
+                        "||      --+\n" +
                         "||        \n" +
                         "||      \n" +
                         "||\n" +
@@ -100,7 +139,7 @@ public class HangManGame {
                 response = "==========|\n" +
                         "||        |\n" +
                         "||        0\n" +
-                        "||          \n" +
+                        "||      --+--\n" +
                         "||        \n" +
                         "||      \n" +
                         "||\n" +
@@ -112,9 +151,9 @@ public class HangManGame {
                 response = "==========|\n" +
                         "||        |\n" +
                         "||        0\n" +
-                        "||        +  \n" +
-                        "||        \n" +
-                        "||      \n" +
+                        "||      --+--\n" +
+                        "||        |\n" +
+                        "||       \n" +
                         "||\n" +
                         "\n" +
                         message +
@@ -124,9 +163,9 @@ public class HangManGame {
                 response = "==========|\n" +
                         "||        |\n" +
                         "||        0\n" +
-                        "||      --+  \n" +
-                        "||        \n" +
-                        "||       \n" +
+                        "||      --+--\n" +
+                        "||        |\n" +
+                        "||      _/ \n" +
                         "||\n" +
                         "\n" +
                         message +
@@ -137,50 +176,22 @@ public class HangManGame {
                         "||        |\n" +
                         "||        0\n" +
                         "||      --+--\n" +
-                        "||        \n" +
-                        "||       \n" +
-                        "||\n" +
-                        "\n" +
-                        message +
-                        " Guess again.";
-                break;
-            case 8:
-                response = "==========|\n" +
-                        "||        |\n" +
-                        "||        0\n" +
-                        "||      --+--\n" +
-                        "||        |\n" +
-                        "||       \n" +
-                        "||\n" +
-                        "\n" +
-                        message +
-                        " Guess again.";
-                break;
-            case 9:
-                response = "==========|\n" +
-                        "||        |\n" +
-                        "||        0\n" +
-                        "||      --+--\n" +
-                        "||        |\n" +
-                        "||      _/\n" +
-                        "||      \n" +
-                        "\n" +
-                        message +
-                        " Guess again.";
-                break;
-            case 10:
-                response = "==========|\n" +
-                        "||        |\n" +
-                        "||        0\n" +
-                        "||      --+--\n" +
                         "||        |\n" +
                         "||      _/ \\_\n" +
                         "||\n" +
                         "\n" +
-                        message +
-                        " Game over.";
+                        message + " Game over."
+                        ;
                 break;
         }
-    return "";
+    return response;
+    }
+
+    public static boolean guessedLetterRight(String secretWord, String guessLetter){
+        //System.out.println("The secret word is: "+ secretWord);
+        //System.out.println("The guess letter is: "+ guessLetter);
+        //System.out.println("The secret word contains the letter: "+ secretWord.contains(guessLetter.toLowerCase()));
+      return secretWord.contains(guessLetter.toLowerCase());
+
     }
 }
