@@ -17,8 +17,8 @@
       <file leaf-file-name="HangManGame.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/HangManGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="78" column="26" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
+            <state relative-caret-position="478">
+              <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -42,10 +42,10 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
+  <component name="ProjectFrameBounds">
     <option name="x" value="9" />
     <option name="y" value="10" />
-    <option name="width" value="1227" />
+    <option name="width" value="1360" />
     <option name="height" value="726" />
   </component>
   <component name="ProjectView">
@@ -310,8 +310,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HangManGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="78" column="26" selection-start-line="78" selection-start-column="26" selection-end-line="78" selection-end-column="26" />
+        <state relative-caret-position="478">
+          <caret line="137" column="17" selection-start-line="137" selection-start-column="17" selection-end-line="137" selection-end-column="17" />
         </state>
       </provider>
     </entry>

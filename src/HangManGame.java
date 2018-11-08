@@ -11,7 +11,7 @@ public class HangManGame {
         String guessedLetter;
         boolean value = true;
         String playAgain = "";
-        String [] chosenWord = {"pour","feel", "cook", "wry", "best"};
+        String [] chosenWord = {"pour","feel", "cook", "wry", "best", "stove", "peep","nourish", "enlarge", "cough", "bed", "see", "degree", "island", "lethal", "utter", "tangy", "whisper", "crazy", "tedious"};
         String currentWord;
 
         keyboard = new Scanner(System.in);
@@ -29,7 +29,7 @@ public class HangManGame {
 
 
                 currentWord = chosenWord[generatedNumber];
-                System.out.println(currentWord);
+                //System.out.println(currentWord);
 
 
                 while (value) {
@@ -68,6 +68,70 @@ public class HangManGame {
                         break;
                     }
                     if (currentWord.equals("feel") && guessedLetter.equals("feel")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("stove") && guessedLetter.equals("stove")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("peep") && guessedLetter.equals("peep")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("peep") && guessedLetter.equals("peep")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("nourish") && guessedLetter.equals("nourish")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("enlarge") && guessedLetter.equals("enlarge")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("cough") && guessedLetter.equals("cough")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("bed") && guessedLetter.equals("bed")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("see") && guessedLetter.equals("see")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("degree") && guessedLetter.equals("degree")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("island") && guessedLetter.equals("island")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("lethal") && guessedLetter.equals("lethal")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("utter") && guessedLetter.equals("utter")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("tangy") && guessedLetter.equals("tangy")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("whisper") && guessedLetter.equals("whisper")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("crazy") && guessedLetter.equals("crazy")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("tedious") && guessedLetter.equals("tedious")) {
                         System.out.println(printMan(hangMan, true));
                         break;
                     }
