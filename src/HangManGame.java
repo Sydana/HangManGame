@@ -11,10 +11,11 @@ public class HangManGame {
         String guessedLetter;
         boolean value = true;
         String playAgain = "";
-        String [] chosenWord = {"pour","knowledge", "cook", "wry", "best"};
+        String [] chosenWord = {"pour","feel", "cook", "wry", "best"};
         String currentWord;
 
         keyboard = new Scanner(System.in);
+        while (value) {
 
         System.out.println("This is the Hang Man Game. These are the rules.");
         System.out.println("There is going to be a word that you have to guess by guessing the letters that make up said word.");
@@ -23,36 +24,60 @@ public class HangManGame {
         System.out.println("Let's get started.");
         int generatedNumber = (int) (Math.random() * chosenWord.length);
 
-        while (value) {
 
-                
-                System.out.println("Guess a letter.");
+
+
+
                 currentWord = chosenWord[generatedNumber];
                 System.out.println(currentWord);
-                guessedLetter = keyboard.nextLine().toLowerCase();
 
 
+                while (value) {
+                    System.out.println("Guess a letter.");
+                    guessedLetter = keyboard.nextLine().toLowerCase();
 
-                       if(guessedLetterRight(currentWord,guessedLetter)){
-                           System.out.println("correct.");
+                    if (guessedLetterRight(currentWord, guessedLetter)) {
+                        System.out.println("correct.");
 
-                           //System.out.println(printMan(hangMan,false));
-                       }
-                       else{
+                        //System.out.println(printMan(hangMan,false));
+                    } else {
 
-                           System.out.println(printMan(hangMan,false));
-                           hangMan++;
-                       }
-                       if (hangMan>6){
-                           value = false;
-                           System.out.println(printMan(hangMan,false));
-                       }
-                       if (guessedLetter.equals("pour")){
-                           System.out.println(printMan(hangMan,true));
-                       }
-
+                        System.out.println(printMan(hangMan, false));
+                        hangMan++;
+                    }
+                    if (hangMan > 6) {
+                        value = false;
+                        System.out.println(printMan(hangMan, false));
+                    }
 
 
+                    if (currentWord.equals("pour") && guessedLetter.equals("pour")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("wry") && guessedLetter.equals("wry")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("best") && guessedLetter.equals("best")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("cook") && guessedLetter.equals("cook")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("feel") && guessedLetter.equals("feel")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                }
+                System.out.println("Would you like to play again?");
+                playAgain = keyboard.nextLine().toLowerCase();
+                if (playAgain.equals("yes")){}
+                if (playAgain.equals("no")){
+                    break;
+                }
         }
     }
 
