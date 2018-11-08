@@ -11,7 +11,8 @@ public class HangManGame {
         String guessedLetter;
         boolean value = true;
         String playAgain = "";
-        String chosenWord = "pour";
+        String [] chosenWord = {"pour","knowledge", "cook", "wry", "best"};
+        String currentWord;
 
         keyboard = new Scanner(System.in);
 
@@ -20,37 +21,19 @@ public class HangManGame {
         System.out.println("Now, once you think you have the word, type out the word to win.\nHere's the kicker, I'm not telling you which order the letters are in.");
         System.out.println("You get 8 tries to do so. If you win, you gain a point.\nYou could see your score at the end of the game, where you could choose to restart the game.");
         System.out.println("Let's get started.");
+        int generatedNumber = (int) (Math.random() * chosenWord.length);
 
         while (value) {
 
-                //int generatedNumber = (int) (Math.random() * 1);
+                
                 System.out.println("Guess a letter.");
-
+                currentWord = chosenWord[generatedNumber];
+                System.out.println(currentWord);
                 guessedLetter = keyboard.nextLine().toLowerCase();
 
 
 
-                       /* if (guessedLetter.equals("p") || guessedLetter.equals("o") || guessedLetter.equals("u") || guessedLetter.equals("r")) {
-                            System.out.println("Correct.");
-                            guessedLetter = keyboard.nextLine();
-                        }
-                        else if (!guessedLetter.equals("p") && !guessedLetter.equals("o") && !guessedLetter.equals("u") && !guessedLetter.equals("r")){
-
-                            System.out.println(printMan(hangMan, false, guessedLetter,"pour"));
-                            System.out.println("Here's a hint, there are four letters.");
-                            hangMan++;
-                        }
-                        if (guessedLetter.equals("pour")) {
-                            System.out.println("lkjhsgd");
-                            System.out.println(printMan(hangMan, true, guessedLetter,"pour"));
-                            value = false;
-                        }
-                        if (hangMan>11){
-                         value = false;
-                         System.out.println(printMan(hangMan, false, guessedLetter,"pour"));
-                        }*/
-
-                       if(guessedLetterRight(chosenWord,guessedLetter)){
+                       if(guessedLetterRight(currentWord,guessedLetter)){
                            System.out.println("correct.");
 
                            //System.out.println(printMan(hangMan,false));
