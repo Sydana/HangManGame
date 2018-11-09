@@ -11,7 +11,8 @@ public class HangManGame {
         String guessedLetter;
         boolean value = true;
         String playAgain = "";
-        String [] chosenWord = {"pour","feel", "cook", "wry", "best", "stove", "peep","nourish", "enlarge", "cough", "bed", "see", "degree", "island", "lethal", "utter", "tangy", "whisper", "crazy", "tedious"};
+        String [] chosenWord = {"pour","feel", "cook", "wry", "best", "stove", "peep","nourish", "enlarge", "cough", "bed", "see", "degree", "island", "lethal", "utter", "tangy", "whisper", "crazy", "tedious",
+                                "brush", "song", "jeans", "base", "paper", "fax", "look", "grace", "surpass", "skate", "sydana"};
         String currentWord;
 
         keyboard = new Scanner(System.in);
@@ -45,9 +46,10 @@ public class HangManGame {
                         System.out.println(printMan(hangMan, false));
                         hangMan++;
                     }
-                    if (hangMan > 6) {
+                    if (hangMan > 8) {
                         value = false;
                         System.out.println(printMan(hangMan, false));
+                        System.out.println("The answer was "+chosenWord[generatedNumber]);
                     }
 
 
@@ -135,11 +137,61 @@ public class HangManGame {
                         System.out.println(printMan(hangMan, true));
                         break;
                     }
+                    if (currentWord.equals("brush") && guessedLetter.equals("brush")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("song") && guessedLetter.equals("song")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("jean") && guessedLetter.equals("jean")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("jeans") && guessedLetter.equals("jeans")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("base") && guessedLetter.equals("base")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("paper") && guessedLetter.equals("paper")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("fax") && guessedLetter.equals("fax")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("look") && guessedLetter.equals("look")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("grace") && guessedLetter.equals("grace")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("surpass") && guessedLetter.equals("surpass")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("skate") && guessedLetter.equals("skate")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
+                    if (currentWord.equals("sydana") && guessedLetter.equals("sydana")) {
+                        System.out.println(printMan(hangMan, true));
+                        break;
+                    }
                 }
                 System.out.println("Would you like to play again?");
                 playAgain = keyboard.nextLine().toLowerCase();
-                if (playAgain.equals("yes")){}
-                if (playAgain.equals("no")){
+                if (playAgain.equals("yes")){
+
+                }
+                else if (playAgain.equals("no")){
                     break;
                 }
         }
@@ -158,9 +210,6 @@ public class HangManGame {
 
             default:
             case 0:
-                Scanner keyboard;
-                keyboard = new Scanner(System.in);
-                String reset;
                 response = "==========|\n" +
                         "||        \n" +
                         "||        \n" +
@@ -171,19 +220,31 @@ public class HangManGame {
                         + message;
                 break;
             case 1:
-                response =
-                        "==========|\n" +
-                                "||        |\n" +
-                                "||        0\n" +
-                                "||          \n" +
-                                "||        \n" +
-                                "||      \n" +
-                                "||\n" +
-                                "\n" +
-                                message +
-                                " Guess again.";
+                response = "==========|\n" +
+                         "||        |\n" +
+                         "||        \n" +
+                         "||          \n" +
+                         "||        \n" +
+                         "||      \n" +
+                         "||\n" +
+                         "\n" +
+                         message +
+                         " Guess again.";
                 break;
             case 2:
+                response =
+                        "==========|\n" +
+                        "||        |\n" +
+                        "||        0\n" +
+                        "||          \n" +
+                        "||        \n" +
+                        "||      \n" +
+                        "||\n" +
+                        "\n" +
+                         message +
+                         " Guess again.";
+                break;
+            case 3:
                 response = "==========|\n" +
                         "||        |\n" +
                         "||        0\n" +
@@ -195,23 +256,11 @@ public class HangManGame {
                         message +
                         " Guess again.";
                 break;
-            case 3:
-                response = "==========|\n" +
-                        "||        |\n" +
-                        "||        0\n" +
-                        "||      --+\n" +
-                        "||        \n" +
-                        "||      \n" +
-                        "||\n" +
-                        "\n" +
-                        message +
-                        " Guess again.";
-                break;
             case 4:
                 response = "==========|\n" +
                         "||        |\n" +
                         "||        0\n" +
-                        "||      --+--\n" +
+                        "||      --+\n" +
                         "||        \n" +
                         "||      \n" +
                         "||\n" +
@@ -224,8 +273,8 @@ public class HangManGame {
                         "||        |\n" +
                         "||        0\n" +
                         "||      --+--\n" +
-                        "||        |\n" +
-                        "||       \n" +
+                        "||        \n" +
+                        "||      \n" +
                         "||\n" +
                         "\n" +
                         message +
@@ -237,7 +286,7 @@ public class HangManGame {
                         "||        0\n" +
                         "||      --+--\n" +
                         "||        |\n" +
-                        "||      _/ \n" +
+                        "||       \n" +
                         "||\n" +
                         "\n" +
                         message +
@@ -249,11 +298,22 @@ public class HangManGame {
                         "||        0\n" +
                         "||      --+--\n" +
                         "||        |\n" +
+                        "||      _/ \n" +
+                        "||\n" +
+                        "\n" +
+                        message +
+                        " Guess again.";
+                break;
+            case 8:
+                response = "==========|\n" +
+                        "||        |\n" +
+                        "||        0\n" +
+                        "||      --+--\n" +
+                        "||        |\n" +
                         "||      _/ \\_\n" +
                         "||\n" +
                         "\n" +
-                        message + " Game over."
-                        ;
+                        message + "\nGame over.";
                 break;
         }
     return response;
