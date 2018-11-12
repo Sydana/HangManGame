@@ -6,7 +6,7 @@ public class HangManGame {
         // String[] chosenWord = {"pour"};
         // for (int i = 0; i < chosenWord.length; i++){
         Scanner keyboard;
-        int hangMan = 0;
+        int hangMan;
         int score = 0;
         String guessedLetter;
         boolean value = true;
@@ -16,7 +16,9 @@ public class HangManGame {
         String currentWord;
 
         keyboard = new Scanner(System.in);
+
         while (value) {
+        hangMan = 0;
 
         System.out.println("This is the Hang Man Game. These are the rules.");
         System.out.println("There is going to be a word that you have to guess by guessing the letters that make up said word.");
@@ -46,10 +48,10 @@ public class HangManGame {
                         System.out.println(printMan(hangMan, false));
                         hangMan++;
                     }
-                    if (hangMan > 8) {
+                    if (hangMan >7) {
                         value = false;
                         System.out.println(printMan(hangMan, false));
-                        System.out.println("The answer was "+chosenWord[generatedNumber]);
+                        System.out.println("The answer was \""+chosenWord[generatedNumber]+"\"");
                     }
 
 
@@ -189,7 +191,7 @@ public class HangManGame {
                 System.out.println("Would you like to play again?");
                 playAgain = keyboard.nextLine().toLowerCase();
                 if (playAgain.equals("yes")){
-
+                    value = true;
                 }
                 else if (playAgain.equals("no")){
                     break;
@@ -208,7 +210,7 @@ public class HangManGame {
         }
         switch (tries) {
 
-            default:
+
             case 0:
                 response = "==========|\n" +
                         "||        \n" +
@@ -220,18 +222,6 @@ public class HangManGame {
                         + message;
                 break;
             case 1:
-                response = "==========|\n" +
-                         "||        |\n" +
-                         "||        \n" +
-                         "||          \n" +
-                         "||        \n" +
-                         "||      \n" +
-                         "||\n" +
-                         "\n" +
-                         message +
-                         " Guess again.";
-                break;
-            case 2:
                 response =
                         "==========|\n" +
                         "||        |\n" +
@@ -244,7 +234,7 @@ public class HangManGame {
                          message +
                          " Guess again.";
                 break;
-            case 3:
+            case 2:
                 response = "==========|\n" +
                         "||        |\n" +
                         "||        0\n" +
@@ -256,11 +246,23 @@ public class HangManGame {
                         message +
                         " Guess again.";
                 break;
-            case 4:
+            case 3:
                 response = "==========|\n" +
                         "||        |\n" +
                         "||        0\n" +
                         "||      --+\n" +
+                        "||        \n" +
+                        "||      \n" +
+                        "||\n" +
+                        "\n" +
+                        message +
+                        " Guess again.";
+                break;
+            case 4:
+                response = "==========|\n" +
+                        "||        |\n" +
+                        "||        0\n" +
+                        "||      --+--\n" +
                         "||        \n" +
                         "||      \n" +
                         "||\n" +
@@ -273,8 +275,8 @@ public class HangManGame {
                         "||        |\n" +
                         "||        0\n" +
                         "||      --+--\n" +
-                        "||        \n" +
-                        "||      \n" +
+                        "||        |\n" +
+                        "||       \n" +
                         "||\n" +
                         "\n" +
                         message +
@@ -286,25 +288,13 @@ public class HangManGame {
                         "||        0\n" +
                         "||      --+--\n" +
                         "||        |\n" +
-                        "||       \n" +
-                        "||\n" +
-                        "\n" +
-                        message +
-                        " Guess again.";
-                break;
-            case 7:
-                response = "==========|\n" +
-                        "||        |\n" +
-                        "||        0\n" +
-                        "||      --+--\n" +
-                        "||        |\n" +
                         "||      _/ \n" +
                         "||\n" +
                         "\n" +
                         message +
                         " Guess again.";
                 break;
-            case 8:
+            case 7:
                 response = "==========|\n" +
                         "||        |\n" +
                         "||        0\n" +
