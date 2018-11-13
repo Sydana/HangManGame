@@ -26,19 +26,23 @@ public class HangManGame {
         System.out.println("You get 8 tries to do so. If you win, you gain a point.\nYou could see your score at the end of the game, where you could choose to restart the game.");
         System.out.println("Let's get started.");
         int generatedNumber = (int) (Math.random() * chosenWord.length);
-
-
-
-
-
                 currentWord = chosenWord[generatedNumber];
-                //System.out.println(currentWord);
-
+                if (currentWord.equals("wry")||currentWord.equals("bed")||currentWord.equals("see")||currentWord.equals("fax")){
+                    System.out.println("There are three letters in this word.");
+                }
+                else if (currentWord.equals("pour")||currentWord.equals("feel")||currentWord.equals("cook")||currentWord.equals("best")||currentWord.equals("peep")||currentWord.equals("song") ||currentWord.equals("base")||currentWord.equals("look")){
+                    System.out.println("There are four letters in this word.");
+                }
+                else if(currentWord.equals("stove")||currentWord.equals("cough")||currentWord.equals("utter")||currentWord.equals("tangy")||currentWord.equals("crazy")||currentWord.equals("brush") ||currentWord.equals("jeans")||currentWord.equals("paper")||currentWord.equals("grace")||currentWord.equals("skate")){
+                    System.out.println("There are five letters in this word.");
+                }
+                else if(currentWord.equals("degree")||currentWord.equals("island")||currentWord.equals("lethal")||currentWord.equals("surpass")||currentWord.equals("sydana")){
+                    System.out.println("There are six letters in this word.");
+                }//currentWord.equals("")||
 
                 while (value) {
                     System.out.println("Guess a letter.");
                     guessedLetter = keyboard.nextLine().toLowerCase();
-                    System.out.println(currentWord +": "+ guessedLetter);
                     if (guessedLetterRight(currentWord, guessedLetter)) {
                         System.out.println("correct.");
 
