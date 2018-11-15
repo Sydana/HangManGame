@@ -13,6 +13,7 @@ public class HangManGame {
         String playAgain = "";
         String [] chosenWord = {"pour","feel", "cook", "wry", "best", "stove", "peep","nourish", "enlarge", "cough", "bed", "see", "degree", "island", "lethal", "utter", "tangy", "whisper", "crazy", "tedious",
                                 "brush", "song", "jeans", "base", "paper", "fax", "look", "grace", "surpass", "skate", "sydana"};
+        String [] alphabet = {"a ","b ","c ","d ","e ","f ","g ","h ","i ","j ","\n","k ","l ","m ","n ","o ","p ","q ","r ","s ","t ","\n","u ","v ","w ","x ","y ","z"};
         String currentWord;
 
         keyboard = new Scanner(System.in);
@@ -36,8 +37,11 @@ public class HangManGame {
                 else if(currentWord.equals("stove")||currentWord.equals("cough")||currentWord.equals("utter")||currentWord.equals("tangy")||currentWord.equals("crazy")||currentWord.equals("brush") ||currentWord.equals("jeans")||currentWord.equals("paper")||currentWord.equals("grace")||currentWord.equals("skate")){
                     System.out.println("There are five letters in this word.");
                 }
-                else if(currentWord.equals("degree")||currentWord.equals("island")||currentWord.equals("lethal")||currentWord.equals("surpass")||currentWord.equals("sydana")){
+                else if(currentWord.equals("degree")||currentWord.equals("island")||currentWord.equals("lethal")||currentWord.equals("sydana")){
                     System.out.println("There are six letters in this word.");
+                }
+                else if(currentWord.equals("nourish")||currentWord.equals("enlarge")||currentWord.equals("whisper")||currentWord.equals("surpass")||currentWord.equals("tedious")){
+                    System.out.println("There are seven letters in this word.");
                 }//currentWord.equals("")||
 
                 while (value) {
@@ -73,6 +77,10 @@ public class HangManGame {
                 else if (playAgain.equals("no")){
                     break;
                 }
+
+
+
+
         }
     }
 
