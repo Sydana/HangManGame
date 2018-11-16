@@ -13,8 +13,9 @@ public class HangManGame {
         String playAgain = "";
         String [] chosenWord = {"pour","feel", "cook", "wry", "best", "stove", "peep","nourish", "enlarge", "cough", "bed", "see", "degree", "island", "lethal", "utter", "tangy", "whisper", "crazy", "tedious",
                                 "brush", "song", "jeans", "base", "paper", "fax", "look", "grace", "surpass", "skate", "sydana"};
-        String [] alphabet = {"a ","b ","c ","d ","e ","f ","g ","h ","i ","j ","\n","k ","l ","m ","n ","o ","p ","q ","r ","s ","t ","\n","u ","v ","w ","x ","y ","z"};
+        String [] alphabet = {"a ","b ","c ","d ","e ","f ","g ","h ","i ","j \n","k ","l ","m ","n ","o ","p ","q ","r ","s ","t \n","u ","v ","w ","x ","y ","z \n"};
         String currentWord;
+        String currentAlpha;
 
         keyboard = new Scanner(System.in);
 
@@ -27,7 +28,9 @@ public class HangManGame {
         System.out.println("You get 8 tries to do so. If you win, you gain a point.\nYou could see your score at the end of the game, where you could choose to restart the game.");
         System.out.println("Let's get started.");
         int generatedNumber = (int) (Math.random() * chosenWord.length);
+
                 currentWord = chosenWord[generatedNumber];
+
                 if (currentWord.equals("wry")||currentWord.equals("bed")||currentWord.equals("see")||currentWord.equals("fax")){
                     System.out.println("There are three letters in this word.");
                 }
@@ -44,9 +47,12 @@ public class HangManGame {
                     System.out.println("There are seven letters in this word.");
                 }//currentWord.equals("")||
 
+
+
                 while (value) {
                     System.out.println("Guess a letter.");
                     guessedLetter = keyboard.nextLine().toLowerCase();
+
                     if (guessedLetterRight(currentWord, guessedLetter)) {
                         System.out.println("correct.");
 
@@ -56,18 +62,25 @@ public class HangManGame {
                         System.out.println(printMan(hangMan, false));
                         hangMan++;
                     }
-                    if (hangMan >7) {
+                    if (hangMan > 7) {
                         value = false;
                         System.out.println(printMan(hangMan, false));
-                        System.out.println("The answer was \""+chosenWord[generatedNumber]+"\"");
+                        System.out.println("The answer was \"" + chosenWord[generatedNumber] + "\"");
                     }
 
 
-                    if (currentWord.equalsIgnoreCase(guessedLetter)){
+                    if (currentWord.equalsIgnoreCase(guessedLetter)) {
 
                         System.out.println(printMan(hangMan, true));
                         break;
                     }
+
+                    alphabet = Beta(alphabet,guessedLetter);
+                    for(String letter: alphabet){
+                        System.out.print(letter);
+                    }
+
+
                 }
                 System.out.println("Would you like to play again?");
                 playAgain = keyboard.nextLine().toLowerCase();
@@ -83,6 +96,7 @@ public class HangManGame {
 
         }
     }
+
 
 
     public static String printMan(int tries, boolean win) {
@@ -199,6 +213,18 @@ public class HangManGame {
         //System.out.println("The guess letter is: "+ guessLetter);
         //System.out.println("The secret word contains the letter: "+ secretWord.contains(guessLetter.toLowerCase()));
       return secretWord.contains(guessLetter.toLowerCase());
+
+    }
+
+    public static String[] Beta (String[] args, String currentGuess ) {
+        for(int i=0;i<args.length;i++){
+            if(args[i].contains(currentGuess)){
+                args[i] = "_ ";
+                return args;
+            }
+
+        }
+        return args;
 
     }
 }
