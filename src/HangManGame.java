@@ -8,18 +8,20 @@ public class HangManGame {
         Scanner keyboard;
         int hangMan;
         int score = 0;
+        int notWinScore = 0;
         String guessedLetter;
         boolean value = true;
         String playAgain = "";
         String [] chosenWord = {"pour","feel", "cook", "wry", "best", "stove", "peep","nourish", "enlarge", "cough", "bed", "see", "degree", "island", "lethal", "utter", "tangy", "whisper", "crazy", "tedious",
                                 "brush", "song", "jeans", "base", "paper", "fax", "look", "grace", "surpass", "skate", "sydana"};
-        String [] alphabet = {"a ","b ","c ","d ","e ","f ","g ","h ","i ","j \n","k ","l ","m ","n ","o ","p ","q ","r ","s ","t \n","u ","v ","w ","x ","y ","z \n"};
+
         String currentWord;
         String currentAlpha;
 
         keyboard = new Scanner(System.in);
 
         while (value) {
+        String [] alphabet = {"a ","b ","c ","d ","e ","f ","g ","h ","i ","j","\n","k ","l ","m ","n ","o ","p ","q ","r ","s ","t","\n","u ","v ","w ","x ","y ","z","\n"};
         hangMan = 0;
 
         System.out.println("This is the Hang Man Game. These are the rules.");
@@ -65,21 +67,25 @@ public class HangManGame {
                     if (hangMan > 7) {
                         value = false;
                         System.out.println(printMan(hangMan, false));
+                        notWinScore++;
                         System.out.println("The answer was \"" + chosenWord[generatedNumber] + "\"");
+                        System.out.println("Your score is: "+score+" points out of "+notWinScore+" games.");
                     }
 
 
                     if (currentWord.equalsIgnoreCase(guessedLetter)) {
-
                         System.out.println(printMan(hangMan, true));
+                        score++;
+                        System.out.println("Your score is: "+score+" points out of "+notWinScore+" games.");
                         break;
                     }
 
                     alphabet = Beta(alphabet,guessedLetter);
+                    System.out.println(" ");
                     for(String letter: alphabet){
                         System.out.print(letter);
                     }
-
+                    System.out.println(" ");
 
                 }
                 System.out.println("Would you like to play again?");
@@ -130,8 +136,7 @@ public class HangManGame {
                         "||      \n" +
                         "||\n" +
                         "\n" +
-                         message +
-                         " Guess again.";
+                         message;
                 break;
             case 2:
                 response = "==========|\n" +
@@ -142,8 +147,7 @@ public class HangManGame {
                         "||      \n" +
                         "||\n" +
                         "\n" +
-                        message +
-                        " Guess again.";
+                        message;
                 break;
             case 3:
                 response = "==========|\n" +
@@ -154,8 +158,7 @@ public class HangManGame {
                         "||      \n" +
                         "||\n" +
                         "\n" +
-                        message +
-                        " Guess again.";
+                        message;
                 break;
             case 4:
                 response = "==========|\n" +
@@ -166,8 +169,7 @@ public class HangManGame {
                         "||      \n" +
                         "||\n" +
                         "\n" +
-                        message +
-                        " Guess again.";
+                        message;
                 break;
             case 5:
                 response = "==========|\n" +
@@ -178,8 +180,7 @@ public class HangManGame {
                         "||       \n" +
                         "||\n" +
                         "\n" +
-                        message +
-                        " Guess again.";
+                        message;
                 break;
             case 6:
                 response = "==========|\n" +
@@ -190,8 +191,7 @@ public class HangManGame {
                         "||      _/ \n" +
                         "||\n" +
                         "\n" +
-                        message +
-                        " Guess again.";
+                        message;
                 break;
             case 7:
                 response = "==========|\n" +
@@ -209,9 +209,6 @@ public class HangManGame {
     }
 
     public static boolean guessedLetterRight(String secretWord, String guessLetter){
-        //System.out.println("The secret word is: "+ secretWord);
-        //System.out.println("The guess letter is: "+ guessLetter);
-        //System.out.println("The secret word contains the letter: "+ secretWord.contains(guessLetter.toLowerCase()));
       return secretWord.contains(guessLetter.toLowerCase());
 
     }
