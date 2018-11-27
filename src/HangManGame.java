@@ -12,17 +12,21 @@ public class HangManGame {
         String guessedLetter;
         boolean value = true;
         String playAgain = "";
+
         String [] chosenWord = {"pour","feel", "cook", "wry", "best", "stove", "peep","nourish", "enlarge", "cough", "bed", "see", "degree", "island", "lethal", "utter", "tangy", "whisper", "crazy", "tedious",
                                 "brush", "song", "jeans", "base", "paper", "fax", "look", "grace", "surpass", "skate", "sydana"};
 
+
         String currentWord;
-        String currentAlpha;
+
 
         keyboard = new Scanner(System.in);
 
         while (value) {
         String [] alphabet = {"a ","b ","c ","d ","e ","f ","g ","h ","i ","j","\n","k ","l ","m ","n ","o ","p ","q ","r ","s ","t","\n","u ","v ","w ","x ","y ","z","\n"};
+        String [] alphabet2 = {" "};
         hangMan = 0;
+
 
         System.out.println("This is the Hang Man Game. These are the rules.");
         System.out.println("There is going to be a word that you have to guess by guessing the letters that make up said word.");
@@ -52,8 +56,11 @@ public class HangManGame {
 
 
                 while (value) {
+                    String usedAlpha;
+                    String usedAlpha2;
                     System.out.println("Guess a letter.");
                     guessedLetter = keyboard.nextLine().toLowerCase();
+
 
                     if (guessedLetterRight(currentWord, guessedLetter)) {
                         System.out.println("correct.");
@@ -71,14 +78,20 @@ public class HangManGame {
                         System.out.println("The answer was \"" + chosenWord[generatedNumber] + "\"");
                         System.out.println("Your score is: "+score+" points out of "+notWinScore+" games.");
                     }
-
-
                     if (currentWord.equalsIgnoreCase(guessedLetter)) {
                         System.out.println(printMan(hangMan, true));
                         score++;
                         System.out.println("Your score is: "+score+" points out of "+notWinScore+" games.");
                         break;
                     }
+
+                    System.out.println("Letters you have used:");
+
+                    alphabet2 = Alpha (alphabet2, guessedLetter);
+
+                    System.out.println(" ");
+
+
 
                     alphabet = Beta(alphabet,guessedLetter);
                     System.out.println(" ");
@@ -224,4 +237,12 @@ public class HangManGame {
         return args;
 
     }
-}
+    public static String[] Alpha (String[] args, String currentGuess){
+        for(int i=0;i<args.length;i++){
+            args[i]= currentGuess;
+            System.out.println(args[i]);
+            }
+        return args;
+        }
+
+    }
