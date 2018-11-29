@@ -24,7 +24,7 @@ public class HangManGame {
 
         while (value) {
         String [] alphabet = {"a ","b ","c ","d ","e ","f ","g ","h ","i ","j","\n","k ","l ","m ","n ","o ","p ","q ","r ","s ","t","\n","u ","v ","w ","x ","y ","z","\n"};
-        String [] alphabet2 = {" "};
+        String  alphabet2 = " ";
         hangMan = 0;
 
 
@@ -87,9 +87,11 @@ public class HangManGame {
 
                     System.out.println("Letters you have used:");
 
-                    alphabet2 = Alpha (alphabet2, guessedLetter);
+                    alphabet2 = alphabet2 + guessedLetter + " ";
 
-                    System.out.println(" ");
+                    //alphabet2 = Alpha(alphabet2,guessedLetter);
+
+                    System.out.println(alphabet2 + "\n");
 
 
 
@@ -237,12 +239,5 @@ public class HangManGame {
         return args;
 
     }
-    public static String[] Alpha (String[] args, String currentGuess){
-        for(int i=0;i<args.length;i++){
-            args[i]= currentGuess;
-            System.out.println(args[i]);
-            }
-        return args;
-        }
 
     }
