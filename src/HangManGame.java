@@ -76,12 +76,12 @@ public class HangManGame {
                         System.out.println(printMan(hangMan, false));
                         notWinScore++;
                         System.out.println("The answer was \"" + chosenWord[generatedNumber] + "\"");
-                        System.out.println("Your score is: "+score+" points out of "+notWinScore+" games.");
+                        System.out.println("Your score is: "+score+" points out of "+notWinScore+" game(s).");
                     }
                     if (currentWord.equalsIgnoreCase(guessedLetter)) {
                         System.out.println(printMan(hangMan, true));
                         score++;
-                        System.out.println("Your score is: "+score+" points out of "+notWinScore+" games.");
+                        System.out.println("Your score is: "+score+" points out of "+notWinScore+" game(s).");
                         break;
                     }
 
@@ -126,7 +126,7 @@ public class HangManGame {
         if (win) {
             message = "That is unbelievable. You WIN!";
         } else {
-            message = "Nope, that's wrong.";
+            message = "Nope, that's wrong.\nThat was try ";
         }
         switch (tries) {
 
@@ -139,7 +139,7 @@ public class HangManGame {
                         "||        \n" +
                         "||      \n" +
                         "||\n"
-                        + message;
+                        + message + "1.";
                 break;
             case 1:
                 response =
@@ -151,7 +151,7 @@ public class HangManGame {
                         "||      \n" +
                         "||\n" +
                         "\n" +
-                         message;
+                         message + "2.";
                 break;
             case 2:
                 response = "==========|\n" +
@@ -162,7 +162,7 @@ public class HangManGame {
                         "||      \n" +
                         "||\n" +
                         "\n" +
-                        message;
+                        message + "3.";
                 break;
             case 3:
                 response = "==========|\n" +
@@ -173,7 +173,7 @@ public class HangManGame {
                         "||      \n" +
                         "||\n" +
                         "\n" +
-                        message;
+                        message + "4.";
                 break;
             case 4:
                 response = "==========|\n" +
@@ -184,7 +184,7 @@ public class HangManGame {
                         "||      \n" +
                         "||\n" +
                         "\n" +
-                        message;
+                        message + "5.";
                 break;
             case 5:
                 response = "==========|\n" +
@@ -195,7 +195,7 @@ public class HangManGame {
                         "||       \n" +
                         "||\n" +
                         "\n" +
-                        message;
+                        message + "6.";
                 break;
             case 6:
                 response = "==========|\n" +
@@ -206,7 +206,7 @@ public class HangManGame {
                         "||      _/ \n" +
                         "||\n" +
                         "\n" +
-                        message;
+                        message + "7.";
                 break;
             case 7:
                 response = "==========|\n" +
@@ -217,7 +217,20 @@ public class HangManGame {
                         "||      _/ \\_\n" +
                         "||\n" +
                         "\n" +
-                        message + "\nGame over.";
+                        message + "8." + "\n\n" +
+                        "         _              _                  _   _         _               _      _          _       _            _      \n" +
+                        "        /\\ \\           / /\\               /\\_\\/\\_\\ _    /\\ \\            /\\ \\   /\\ \\    _ / /\\     /\\ \\         /\\ \\    \n" +
+                        "       /  \\ \\         / /  \\             / / / / //\\_\\ /  \\ \\          /  \\ \\  \\ \\ \\  /_/ / /    /  \\ \\       /  \\ \\   \n" +
+                        "      / /\\ \\_\\       / / /\\ \\           /\\ \\/ \\ \\/ / // /\\ \\ \\        / /\\ \\ \\  \\ \\ \\ \\___\\/    / /\\ \\ \\     / /\\ \\ \\  \n" +
+                        "     / / /\\/_/      / / /\\ \\ \\         /  \\____\\__/ // / /\\ \\_\\      / / /\\ \\ \\ / / /  \\ \\ \\   / / /\\ \\_\\   / / /\\ \\_\\ \n" +
+                        "    / / / ______   / / /  \\ \\ \\       / /\\/________// /_/_ \\/_/     / / /  \\ \\_\\\\ \\ \\   \\_\\ \\ / /_/_ \\/_/  / / /_/ / / \n" +
+                        "   / / / /\\_____\\ / / /___/ /\\ \\     / / /\\/_// / // /____/\\       / / /   / / / \\ \\ \\  / / // /____/\\    / / /__\\/ /  \n" +
+                        "  / / /  \\/____ // / /_____/ /\\ \\   / / /    / / // /\\____\\/      / / /   / / /   \\ \\ \\/ / // /\\____\\/   / / /_____/   \n" +
+                        " / / /_____/ / // /_________/\\ \\ \\ / / /    / / // / /______     / / /___/ / /     \\ \\ \\/ // / /______  / / /\\ \\ \\     \n" +
+                        "/ / /______\\/ // / /_       __\\ \\_\\\\/_/    / / // / /_______\\   / / /____\\/ /       \\ \\  // / /_______\\/ / /  \\ \\ \\    \n" +
+                        "\\/___________/ \\_\\___\\     /____/_/        \\/_/ \\/__________/   \\/_________/         \\_\\/ \\/__________/\\/_/    \\_\\/    \n" +
+                        "                                                                                                                       \n" +
+                        " \n";
                 break;
         }
     return response;
